@@ -7,6 +7,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { useEffect } from "react";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -15,6 +16,12 @@ export const meta: MetaFunction = () => ({
 });
 
 export default function App() {
+  useEffect(() => {
+    fetch("http://localhost:5000/heroes")
+      .then((res) => res.json())
+      .then((data) => console.log("DATA:", data));
+  }, []);
+
   return (
     <html lang="en">
       <head>
