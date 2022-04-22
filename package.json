@@ -9,15 +9,19 @@
     "build": "remix build",
     "dev": "remix dev",
     "start": "remix-serve build",
-    "backend": "json-server --watch json-server/db.json --port 5000 --delay=1000 --nc",
+    "backend": "json-server --watch json-server/db.json --port 5000 --delay=1000 --routes json-server/routes.json",
     "dev:fullstack": "concurrently \"npm run dev\" \"npm run backend\""
   },
   "dependencies": {
+    "@prisma/client": "^3.12.0",
     "@remix-run/node": "^1.4.1",
     "@remix-run/react": "^1.4.1",
     "@remix-run/serve": "^1.4.1",
+    "axios": "^0.26.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "remix": "^1.4.1",
+    "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.4.1",
@@ -28,6 +32,7 @@
     "eslint": "^8.11.0",
     "json-server": "^0.17.0",
     "prettier": "^2.6.2",
+    "prisma": "^3.12.0",
     "tailwindcss": "^3.0.24",
     "typescript": "^4.5.5"
   },

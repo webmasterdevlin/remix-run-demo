@@ -1,32 +1,27 @@
+import prisma from "~/lib/db.server";
+import { useLoaderData } from "@remix-run/react";
+import { HeroModel } from "~/routes/heroes";
+
+export const loader = async () => await prisma.hero.findMany();
+
 export default function Index() {
+  const heroes = useLoaderData<HeroModel[]>();
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h1>Welcome to Remix</h1>
+    <>
+      <div>
+        <h1>Super Heroes</h1>
+      </div>
       <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
+        {heroes.map((h) => (
+          <div key={h.id}>
+            <h2>
+              {h.firstName} {h.lastName}
+            </h2>
+            <h3>{h.knownAs}</h3>
+            <h3>{h.house}</h3>
+          </div>
+        ))}
       </ul>
-    </div>
+    </>
   );
 }

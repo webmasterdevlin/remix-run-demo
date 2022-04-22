@@ -51,3 +51,18 @@ rm -rf app
 # copy your app over
 cp -R ../my-old-remix-app/app app
 ```
+
+Prisma setup
+
+```sh
+npm i @prisma/client
+npm i -D prisma
+npx prisma init --datasource-provider sqlite
+```
+
+update prisma/schema.prisma
+
+```sh
+npx prisma db push
+npx prisma studio
+```
