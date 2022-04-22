@@ -10,12 +10,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Hero {
+model Todo {
   id        String   @id @default(uuid())
-  firstName String
-  lastName  String
-  knownAs   String
-  house     String
+  title     String
+  completed Boolean
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

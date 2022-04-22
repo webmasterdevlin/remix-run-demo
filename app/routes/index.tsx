@@ -1,27 +1,30 @@
 import prisma from "~/lib/db.server";
 import { useLoaderData } from "@remix-run/react";
-import { HeroModel } from "~/routes/heroes";
 
-export const loader = async () => await prisma.hero.findMany();
+export const loader = async () => await prisma.todo.findMany();
 
 export default function Index() {
-  const heroes = useLoaderData<HeroModel[]>();
+  const todos = useLoaderData<TodoModel[]>();
   return (
     <>
       <div>
-        <h1>Super Heroes</h1>
+        <h1>What's Next?</h1>
       </div>
       <ul>
-        {heroes.map((h) => (
-          <div key={h.id}>
+        {todos.map((t) => (
+          <div key={t.id}>
             <h2>
-              {h.firstName} {h.lastName}
+              {t.title} {t.completed ? "✅" : "❌"}
             </h2>
-            <h3>{h.knownAs}</h3>
-            <h3>{h.house}</h3>
           </div>
         ))}
       </ul>
     </>
   );
 }
+
+export type TodoModel = {
+  id: number;
+  title: string;
+  completed: boolean;
+};
