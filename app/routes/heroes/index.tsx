@@ -1,7 +1,10 @@
+import React, { useState } from "react";
 import type { LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { get } from "~/http-client/config";
 
+// server code which does not get bundled
+// this will be converted to a server JSON data if Heroes is not present
 export const loader: LoaderFunction = async () => {
   const { data } = await get<HeroModel[]>("heroes");
   return data.filter((h) => h.house === "Marvel");
@@ -9,6 +12,7 @@ export const loader: LoaderFunction = async () => {
 
 export default function Heroes() {
   const heroes = useLoaderData<HeroModel[]>();
+
   return (
     <>
       <div>

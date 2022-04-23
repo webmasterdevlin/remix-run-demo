@@ -15,8 +15,6 @@ export const meta: MetaFunction = () => ({
 });
 
 export default function App() {
-
-
   return (
     <html lang="en">
       <head>
