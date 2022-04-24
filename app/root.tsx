@@ -62,7 +62,7 @@ function Layout({ children }: { children: ReactNode }) {
     <div className="layout">
       <div className="layout__content">
         <Navigation />
-        {children}
+        <div className="container">{children}</div>
       </div>
     </div>
   );

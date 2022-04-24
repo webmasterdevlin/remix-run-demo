@@ -66,11 +66,17 @@ export default function Todos() {
           required
           maxLength={20}
         />
-        <button disabled={isAdding} type="submit" name="_action" value="create">
+        <button
+          disabled={isAdding}
+          type="submit"
+          name="_action"
+          value="create"
+          className={"btn"}
+        >
           {isAdding ? "Adding" : "Create"}
         </button>
       </Form>
-      <li>
+      <section>
         {/*declarative mutation =)*/}
         {todos.map((t) => {
           return (
@@ -87,7 +93,7 @@ export default function Todos() {
             </Form>
           );
         })}
-      </li>
+      </section>
     </>
   );
 }
