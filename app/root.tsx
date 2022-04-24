@@ -13,14 +13,7 @@ import globalStylesUrl from "~/styles/global.css";
 import type { ReactNode } from "react";
 
 export const links: LinksFunction = () => {
-  return [
-    {
-      rel: "stylesheet",
-      href: "https://fonts.googleapis.com/css?family=Lato:400,700",
-      type: "text/css",
-    },
-    { rel: "stylesheet", href: globalStylesUrl },
-  ];
+  return [{ rel: "stylesheet", href: globalStylesUrl }];
 };
 
 export const meta: MetaFunction = () => ({
