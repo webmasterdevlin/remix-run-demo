@@ -111,9 +111,9 @@ p {
 }
 
 .btn-delete {
-  background: darkred;
+  background: white;
   color: #fff;
-  border-color: darkred;
+  border-color: gray;
   font-size: 13px;
   padding: 5px 10px;
 }
@@ -188,26 +188,4 @@ p {
 
 .error {
   color: darkred;
-}
-
-.auth-container {
-  max-width: 600px;
-  margin: auto;
-}
-
-.auth-container h1 {
-  text-align: center;
-}
-
-.auth-container .pageHeader {
-  display: block;
-}
-
-.auth-container fieldset {
-  padding: 15px;
-  border-radius: 5px;
-}
-
-.auth-container fieldset label {
-  margin-right: 10px;
 }

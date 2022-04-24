@@ -8,9 +8,9 @@ type Routes = {
 
 const routes: Routes[] = [
   { path: "/", label: "🏠" },
-  { path: "heroes", label: "HEROES" },
-  { path: "todos", label: "TODOS" },
-  { path: "pokemon", label: "POKEMON" },
+  { path: "heroes", label: "heroes" },
+  { path: "todos", label: "todos" },
+  { path: "pokemon", label: "pokemon" },
 ];
 
 const Navigation = () => {

@@ -54,7 +54,7 @@ export default function Todos() {
         <h1>What's Next?</h1>
       </div>
       {/*does revalidation after the post to sync data with the UI*/}
-      <Form method="post">
+      <Form method="post" className={"form-control"}>
         <div>
           <label htmlFor="title">Title</label>
         </div>
@@ -87,7 +87,12 @@ export default function Todos() {
             >
               <h2>{t.title}</h2>
               <input type="hidden" name="id" value={t.id} />
-              <button type="submit" name="_action" value="delete">
+              <button
+                type="submit"
+                name="_action"
+                value="delete"
+                className={"btn-delete"}
+              >
                 ✔️
               </button>
             </Form>
