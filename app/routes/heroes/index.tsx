@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import type { LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { get } from "~/http-client/config";
