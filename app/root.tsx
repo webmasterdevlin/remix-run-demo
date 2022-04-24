@@ -1,14 +1,25 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import {
   Links,
   LiveReload,
   Meta,
-  NavLink,
   Outlet,
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
 import Navigation from "~/components/navigation";
+import globalStylesUrl from "~/styles/global.css";
+
+export const links: LinksFunction = () => {
+  return [
+    {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css?family=Lato:400,700",
+      type: "text/css",
+    },
+    { rel: "stylesheet", href: globalStylesUrl },
+  ];
+};
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",

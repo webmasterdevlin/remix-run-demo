@@ -1,7 +1,14 @@
 export default function Home() {
   return (
-    <div>
-      <h1>Home Page</h1>
+    <div
+      style={{
+        width: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <h1>Remix Run</h1>
     </div>
   );
 }
