@@ -56,15 +56,25 @@ p {
 }
 
 .navbar ul li a {
-  color: #000;
   text-transform: uppercase;
-  font-size: 14px;
-  font-weight: bold;
+  background: #f0f0f0;
+  border-radius: 4px;
+  padding: 6px 10px;
+  margin-right: 10px;
 }
 
 .navbar ul li a:hover {
   color: #333;
   border-bottom: 1px solid #333;
+}
+
+.navbar ul li a.active {
+  color: #fff;
+  background: #7600dc;
+}
+
+.navbar ul li a.inactive {
+  font-style: italic;
 }
 
 .btn {

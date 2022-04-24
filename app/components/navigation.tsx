@@ -1,22 +1,35 @@
 import React from "react";
 import { NavLink } from "@remix-run/react";
 
+type Routes = {
+  path: string;
+  label: string;
+};
+
+const routes: Routes[] = [
+  { path: "/", label: "🏠" },
+  { path: "heroes", label: "HEROES" },
+  { path: "todos", label: "TODOS" },
+  { path: "pokemon", label: "POKEMON" },
+];
+
 const Navigation = () => {
   return (
-    <nav
-      style={{
-        height: "2rem",
-        padding: "1rem",
-        backgroundColor: "#f5f5f5",
-        display: "flex",
-        gap: "1rem",
-        alignItems: "center",
-      }}
-    >
-      <NavLink to={"/"}>🏠</NavLink>
-      <NavLink to={"heroes"}>HEROES</NavLink>
-      <NavLink to={"todos"}>TODOS</NavLink>
-      <NavLink to={"pokemon"}>POKEMON</NavLink>
+    <nav className="navbar">
+      <ul>
+        {routes.map((r) => {
+          return (
+            <li>
+              <NavLink
+                to={r.path}
+                className={({ isActive }) => (isActive ? "active" : "inactive")}
+              >
+                {r.label}
+              </NavLink>
+            </li>
+          );
+        })}
+      </ul>
     </nav>
   );
 };
