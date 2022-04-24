@@ -54,23 +54,29 @@ export default function Todos() {
         <h1>What's Next?</h1>
       </div>
       {/*does revalidation after the post to sync data with the UI*/}
-      <Form method="post" reloadDocument>
+      <Form method="post">
         <div>
           <label htmlFor="title">Title</label>
         </div>
-        <input id="title" name="title" type="text" ref={titleRef} />
+        <input
+          id="title"
+          name="title"
+          type="text"
+          ref={titleRef}
+          required
+          maxLength={20}
+        />
         <button disabled={isAdding} type="submit" name="_action" value="create">
           {isAdding ? "Adding" : "Create"}
         </button>
       </Form>
-      <ul>
+      <li>
         {/*declarative mutation =)*/}
         {todos.map((t) => {
           return (
             <Form
               method="post"
               key={t.id}
-              reloadDocument
               style={{ display: "flex", gap: "1rem", alignItems: "center" }}
             >
               <h2>{t.title}</h2>
@@ -81,7 +87,7 @@ export default function Todos() {
             </Form>
           );
         })}
-      </ul>
+      </li>
     </>
   );
 }
