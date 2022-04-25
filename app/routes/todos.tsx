@@ -40,7 +40,7 @@ export default function Todos() {
   const titleRef = useRef<any>();
 
   const isAdding =
-    state === "submitting" && submission.formData.get("_action") === "create";
+    state === "submitting" && submission?.formData.get("_action") === "create";
 
   useEffect(() => {
     if (isAdding) {

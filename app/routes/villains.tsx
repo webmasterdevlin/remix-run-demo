@@ -1,5 +1,7 @@
+import { json } from "@remix-run/node";
+
 export const loader = () => {
-  return [
+  return json([
     {
       firstName: "Lex",
       lastName: "Luther",
@@ -14,5 +16,5 @@ export const loader = () => {
       knownAs: "Magneto",
       id: "c2696868-7a2e-40b6-a879-389fc6ee0171",
     },
-  ];
+  ]);
 };
