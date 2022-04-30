@@ -9,6 +9,7 @@ import { Form, useLoaderData, useTransition } from "@remix-run/react";
 import type { Todo } from "@prisma/client";
 import type { ActionFunction, LoaderFunction } from "@remix-run/node";
 import { useEffect, useRef } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 export const loader: LoaderFunction = async () => await db.todo.findMany();
 
@@ -16,7 +17,6 @@ export const action: ActionFunction = async (args) => {
   const formData = await args.request.formData();
   const _action = formData.get("_action");
   const title = formData.get("title") as string;
-
   switch (_action) {
     case "create":
       // this can be put in another file
@@ -36,6 +36,7 @@ export const action: ActionFunction = async (args) => {
 export default function Todos() {
   const todos = useLoaderData<Todo[]>();
   const { state, submission } = useTransition();
+  const notify = () => toast("NEW TASK ADDED");
 
   const titleRef = useRef<any>();
 
@@ -44,7 +45,8 @@ export default function Todos() {
 
   useEffect(() => {
     if (isAdding) {
-      titleRef.current?.reset();
+      notify();
+      titleRef.current.value = "";
     }
   }, [isAdding]);
 
@@ -75,6 +77,7 @@ export default function Todos() {
         >
           {isAdding ? "Adding" : "Create"}
         </button>
+        <ToastContainer />
       </Form>
       <section>
         {/*declarative mutation =)*/}

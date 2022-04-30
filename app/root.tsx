@@ -11,9 +11,16 @@ import {
 import Navigation from "~/components/navigation";
 import globalStylesUrl from "~/styles/global.css";
 import type { ReactNode } from "react";
+import toastStyles from "react-toastify/dist/ReactToastify.css";
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: globalStylesUrl }];
+  return [
+    { rel: "stylesheet", href: globalStylesUrl },
+    {
+      rel: "stylesheet",
+      href: toastStyles,
+    },
+  ];
 };
 
 export const meta: MetaFunction = () => ({
