@@ -17,9 +17,9 @@ const Navigation = () => {
   return (
     <nav className="navbar">
       <ul>
-        {routes.map((r) => {
+        {routes.map((r, i) => {
           return (
-            <li>
+            <li key={i}>
               <NavLink
                 to={r.path}
                 className={({ isActive }) => (isActive ? "active" : "inactive")}
