@@ -1,4 +1,8 @@
 import { RemixBrowser } from "@remix-run/react";
-import { hydrate } from "react-dom";
+// React 17
+// import { hydrate } from "react-dom";
+// hydrate(<RemixBrowser />, document);
 
-hydrate(<RemixBrowser />, document);
+// React 18
+import { hydrateRoot } from "react-dom/client";
+hydrateRoot(document, <RemixBrowser />);
