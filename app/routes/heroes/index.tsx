@@ -1,6 +1,6 @@
 import React from "react";
 import type { LoaderFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { NavLink, useLoaderData } from "@remix-run/react";
 import { get } from "~/http-client/config";
 
 // server code which does not get bundled
@@ -19,9 +19,11 @@ export default function Heroes() {
         <h1>Marvel Heroes</h1>
         {heroes.map((h) => (
           <div key={h.id}>
-            <h2>
-              {h.firstName} {h.lastName}
-            </h2>
+            <NavLink to={h.id}>
+              <h2>
+                {h.firstName} {h.lastName}
+              </h2>
+            </NavLink>
           </div>
         ))}
       </div>

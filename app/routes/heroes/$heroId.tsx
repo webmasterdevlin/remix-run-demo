@@ -15,8 +15,9 @@ export default function HeroId() {
   const hero = useLoaderData<HeroModel>();
   return (
     <div>
-      <h2>Super Heroes</h2>
-      <h1>HeroId: {hero?.firstName}</h1>
+      <h1>Super Heroes</h1>
+      <h2>Hero Id: {hero?.id}</h2>
+      <h2>Hero Name: {hero?.firstName}</h2>
     </div>
   );
 }
