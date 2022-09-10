@@ -13,31 +13,31 @@
     "dev:fullstack": "concurrently \"npm run dev\" \"npm run backend\""
   },
   "dependencies": {
-    "@prisma/client": "^4.2.1",
-    "@remix-run/node": "^1.6.7",
-    "@remix-run/react": "^1.6.7",
-    "@remix-run/serve": "^1.6.7",
+    "@prisma/client": "^4.3.1",
+    "@remix-run/node": "^1.7.0",
+    "@remix-run/react": "^1.7.0",
+    "@remix-run/serve": "^1.7.0",
     "axios": "^0.27.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-toastify": "^9.0.8",
     "react-use": "^17.4.0",
-    "remix": "^1.6.7",
+    "remix": "^1.7.0",
     "remix-utils": "^3.3.0",
     "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {
-    "@remix-run/dev": "^1.6.7",
-    "@remix-run/eslint-config": "^1.6.7",
-    "@types/react": "^18.0.17",
+    "@remix-run/dev": "^1.7.0",
+    "@remix-run/eslint-config": "^1.7.0",
+    "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
-    "concurrently": "^7.3.0",
-    "eslint": "^8.21.0",
+    "concurrently": "^7.4.0",
+    "eslint": "^8.23.0",
     "json-server": "^0.17.0",
     "prettier": "^2.7.1",
-    "prisma": "^4.2.1",
+    "prisma": "^4.3.1",
     "tailwindcss": "^3.1.8",
-    "typescript": "^4.7.4"
+    "typescript": "^4.8.3"
   },
   "engines": {
     "node": ">=14"
