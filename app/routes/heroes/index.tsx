@@ -6,6 +6,7 @@ import { get } from "~/http-client/config";
 // server code which does not get bundled
 // this will be converted to a server JSON data if Heroes is not present
 export const loader: LoaderFunction = async () => {
+  console.log("heroes:server");
   const { data } = await get<HeroModel[]>("heroes");
   return data.filter((h) => h.house === "Marvel");
 };

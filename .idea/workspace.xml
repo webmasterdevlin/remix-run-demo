@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f35f85f0-4118-43e9-b053-81800770c7a4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/navigation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/navigation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/entry.client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/entry.client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/entry.server.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/entry.server.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/root.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/root.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routes/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/heroes/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/heroes/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/pokemon.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/pokemon.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routes/todos.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/todos.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,16 +29,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/inmetadeveloper/Downloads/remix-run/devlin/node_modules/prettier",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Project.color&quot;: &quot;15575a&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/inmetadeveloper/Downloads/remix-run/devlin/node_modules/prettier&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -45,7 +49,22 @@
       <option name="presentableId" value="Default" />
       <updated>1650658582398</updated>
       <workItem from="1650658583921" duration="3000" />
+      <workItem from="1663248111860" duration="70000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

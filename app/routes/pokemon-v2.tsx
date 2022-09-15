@@ -1,16 +1,20 @@
+import { LoaderFunction } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 import { useEffect, useState } from "react";
 import { get } from "~/http-client/config";
 
+export const loader: LoaderFunction = async () => {
+  const { data } = await get<any[]>(
+    "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20"
+  );
+  return data;
+};
+
 export default function Pokemon() {
-  const [pokemon, setPokemon] = useState<any>(null);
+  const pokemon = useLoaderData<any>();
   // will not work if you disable JavaScript in your browser
   useEffect(() => {
-    console.log("pokemon:client");
-    get<any[]>("https://pokeapi.co/api/v2/pokemon?offset=20&limit=20").then(
-      (res: any) => {
-        setPokemon(res.data);
-      }
-    );
+    console.log("pokemon-v2:client");
   }, []);
 
   return (

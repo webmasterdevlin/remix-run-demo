@@ -11,7 +11,10 @@ import type { ActionFunction, LoaderFunction } from "@remix-run/node";
 import { useEffect, useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
-export const loader: LoaderFunction = async () => await db.todo.findMany();
+export const loader: LoaderFunction = async () => {
+  console.log("todos:server");
+  await db.todo.findMany();
+};
 
 export const action: ActionFunction = async (args) => {
   const formData = await args.request.formData();
@@ -44,6 +47,7 @@ export default function Todos() {
     state === "submitting" && submission?.formData.get("_action") === "create";
 
   useEffect(() => {
+    console.log("todos:client");
     if (isAdding) {
       notify();
       titleRef.current.value = "";

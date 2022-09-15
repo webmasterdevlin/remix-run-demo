@@ -11,6 +11,7 @@ const routes: Routes[] = [
   { path: "heroes", label: "heroes" },
   { path: "todos", label: "todos" },
   { path: "pokemon", label: "pokemon" },
+  { path: "pokemon-v2", label: "pokemon-v2" },
 ];
 
 const Navigation = () => {
