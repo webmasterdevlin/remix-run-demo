@@ -13,7 +13,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 export const loader: LoaderFunction = async () => {
   console.log("todos:server");
-  await db.todo.findMany();
+  return await db.todo.findMany();
 };
 
 export const action: ActionFunction = async (args) => {
