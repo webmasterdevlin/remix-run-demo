@@ -4,11 +4,11 @@
  * This is a fast server render.
  * */
 
-import { db } from "~/utils/db.server";
-import { Form, useLoaderData, useTransition } from "@remix-run/react";
-import type { Todo } from "@prisma/client";
-import type { ActionFunction, LoaderFunction } from "@remix-run/node";
 import { useEffect, useRef } from "react";
+import { Form, useLoaderData, useTransition } from "@remix-run/react";
+import type { ActionFunction, LoaderFunction } from "@remix-run/node";
+import type { Todo } from "@prisma/client";
+import { db } from "~/utils/db.server";
 import { ToastContainer, toast } from "react-toastify";
 
 export const loader: LoaderFunction = async () => {
