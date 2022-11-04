@@ -23,9 +23,9 @@ const Navigation = () => {
           return (
             <li key={i}>
               <NavLink
-                to={r.path}
-                className={({ isActive }) => (isActive ? "active" : "inactive")}
-              >
+                  to={r.path}
+                  target={r.path === 'villains' ? '_blank' : ''}
+                  className={({ isActive }) => (isActive ? "active" : "inactive")}>
                 {r.label}
               </NavLink>
             </li>
