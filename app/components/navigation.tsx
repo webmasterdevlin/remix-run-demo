@@ -8,10 +8,11 @@ type Routes = {
 
 const routes: Routes[] = [
   { path: "/", label: "🏠" },
-  { path: "heroes", label: "heroes" },
-  { path: "todos", label: "todos" },
+  { path: "villains", label: "villains" },
   { path: "pokemon", label: "pokemon" },
   { path: "pokemon-v2", label: "pokemon-v2" },
+  { path: "heroes", label: "heroes" },
+  { path: "todos", label: "todos" },
 ];
 
 const Navigation = () => {
