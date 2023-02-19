@@ -4,7 +4,7 @@ Its default export is a component that renders the full HTML tree
 that every other route loads and depends on.
 */
 
-import type { LinksFunction, MetaFunction } from "@remix-run/node";
+import type { LinksFunction, MetaFunction } from '@remix-run/node';
 import {
   Links,
   LiveReload,
@@ -13,12 +13,11 @@ import {
   Scripts,
   ScrollRestoration,
   useCatch,
-} from "@remix-run/react";
-import Navigation from "~/components/navigation";
-import globalStylesUrl from "~/styles/global.css";
-import type { ReactNode } from "react";
-import toastStyles from "react-toastify/dist/ReactToastify.css";
-import stylesheet from "~/tailwind.css";
+} from '@remix-run/react';
+import Navigation from '~/components/navigation';
+import type { ReactNode } from 'react';
+import toastStyles from 'react-toastify/dist/ReactToastify.css';
+import stylesheet from '~/styles/tailwind.css';
 
 /*
 The links function defines which <link> elements to add
@@ -26,12 +25,11 @@ to the page when the user visits a route.
 */
 export const links: LinksFunction = () => {
   return [
-    { rel: "stylesheet", href: globalStylesUrl },
     {
-      rel: "stylesheet",
+      rel: 'stylesheet',
       href: toastStyles,
     },
-    { rel: "stylesheet", href: stylesheet },
+    { rel: 'stylesheet', href: stylesheet },
   ];
 };
 
@@ -39,9 +37,9 @@ export const links: LinksFunction = () => {
 The meta export will set meta tags for your html document.
 */
 export const meta: MetaFunction = () => ({
-  charset: "utf-8",
-  title: "New Remix App",
-  viewport: "width=device-width,initial-scale=1",
+  charset: 'utf-8',
+  title: 'New Remix App',
+  viewport: 'width=device-width,initial-scale=1',
 });
 
 export default function App() {
@@ -69,11 +67,11 @@ function Document({
         <title>{title}</title>
         <Links />
       </head>
-      <body>
+      <body className="dark">
         {children}
         <ScrollRestoration />
         <Scripts />
-        {process.env.NODE_ENV === "development" ? <LiveReload /> : null}
+        {process.env.NODE_ENV === 'development' ? <LiveReload /> : null}
       </body>
     </html>
   );
@@ -81,11 +79,9 @@ function Document({
 
 function Layout({ children }: { children: ReactNode }) {
   return (
-    <div className="layout">
-      <div className="layout__content">
-        <Navigation />
-        <div className="container">{children}</div>
-      </div>
+    <div>
+      <Navigation />
+      <div className="container mx-auto p-4">{children}</div>
     </div>
   );
 }
