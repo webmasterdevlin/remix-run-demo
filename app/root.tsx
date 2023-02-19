@@ -18,6 +18,7 @@ import Navigation from "~/components/navigation";
 import globalStylesUrl from "~/styles/global.css";
 import type { ReactNode } from "react";
 import toastStyles from "react-toastify/dist/ReactToastify.css";
+import stylesheet from "~/tailwind.css";
 
 /*
 The links function defines which <link> elements to add
@@ -30,6 +31,7 @@ export const links: LinksFunction = () => {
       rel: "stylesheet",
       href: toastStyles,
     },
+    { rel: "stylesheet", href: stylesheet },
   ];
 };
 
