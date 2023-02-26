@@ -55,7 +55,7 @@ cp -R ../my-old-remix-app/app app
 Prisma setup
 
 ```sh
-npm i @prisma/client
+npm i -D @prisma/client
 npm i -D prisma
 npx prisma init --datasource-provider sqlite
 ```
