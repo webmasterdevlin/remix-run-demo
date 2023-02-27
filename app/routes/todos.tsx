@@ -6,7 +6,11 @@
 
 import { useEffect, useRef } from 'react';
 import { Form, useLoaderData, useTransition } from '@remix-run/react';
-import type { ActionFunction, LoaderFunction } from '@remix-run/node';
+import type {
+  ActionFunction,
+  DataFunctionArgs,
+  LoaderFunction,
+} from '@remix-run/node';
 import type { Todo } from '@prisma/client';
 import { db } from '~/utils/db.server';
 import { ToastContainer, toast } from 'react-toastify';
@@ -41,13 +45,14 @@ export const loader: LoaderFunction = async () => {
   ];
 };
 
-export const action: ActionFunction = async args => {
+export const action: ActionFunction = async (args: DataFunctionArgs) => {
   const formData = await args.request.formData();
   const _action = formData.get('_action');
   const title = formData.get('title') as string;
   switch (_action) {
     case 'create':
       // this can be put in another file
+      // do remix-validated-form + zod here
       return await db.todo.create({
         data: {
           title: title,
