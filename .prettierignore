@@ -1,4 +1,7 @@
 node_modules
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
+
+/build
+/public/build
+.env
+
+/app/styles/tailwind.css
