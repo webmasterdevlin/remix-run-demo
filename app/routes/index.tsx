@@ -1,7 +1,7 @@
-import React from "react";
+import { useState } from "react";
 
 export default function Home() {
-  const [count, setCount] = React.useState<number | null>(0);
+  const [count, setCount] = useState<number>(0);
 
   return (
     <>

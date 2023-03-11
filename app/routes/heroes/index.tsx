@@ -1,4 +1,3 @@
-import React from "react";
 import type { LoaderFunction } from "@remix-run/node";
 import { NavLink, useLoaderData } from "@remix-run/react";
 import { get } from "~/http-client/config";

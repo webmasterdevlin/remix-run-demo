@@ -18,31 +18,6 @@ import type { Todo } from "~/models/todos.model";
 export const loader: LoaderFunction = async () => {
   console.log("todos:server");
   return await db.todo.findMany();
-
-  // for tests of revaluation
-  return [
-    {
-      id: "94f92ac7-cf82-4613-8fa4-8172f80654aa",
-      title: "code",
-      completed: false,
-      createdAt: "2022-08-12T04:34:46.164Z",
-      updatedAt: "2022-08-12T04:34:46.164Z",
-    },
-    {
-      id: "cb320983-978a-4f87-9a9b-14bb0fb2e9db",
-      title: "sleep",
-      completed: false,
-      createdAt: "2022-08-12T04:34:48.247Z",
-      updatedAt: "2022-08-12T04:34:48.248Z",
-    },
-    {
-      id: "e2e28304-d3a3-4592-b342-a08b108fa0cf",
-      title: "eat",
-      completed: false,
-      createdAt: "2022-08-12T04:34:53.502Z",
-      updatedAt: "2022-08-12T04:34:53.503Z",
-    },
-  ];
 };
 
 export const action: ActionFunction = async (args: DataFunctionArgs) => {

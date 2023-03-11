@@ -6,12 +6,12 @@
     "build": "remix build",
     "dev": "remix dev",
     "start": "remix-serve build",
-    "prisma:init": "npx prisma init --datasource-provider sqlite",
-    "prisma:studio": "npx prisma studio",
+    "prisma.init": "npx prisma init --datasource-provider sqlite",
+    "prisma.studio": "npx prisma studio",
     "backend": "json-server --watch json-server/db.json --port 5000 --delay=1000 --routes json-server/routes.json",
-    "dev:fullstack": "concurrently \"npm run dev\" \"npm run backend\" \"npx prisma studio\"",
+    "dev.fullstack": "concurrently \"npm run dev\" \"npm run backend\" \"npx prisma studio\"",
     "test": "vitest",
-    "test:e2e": "npx cypress open"
+    "test.e2e": "npx cypress open"
   },
   "prettier": {},
   "eslintIgnore": [
