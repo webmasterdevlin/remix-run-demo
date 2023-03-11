@@ -5,7 +5,7 @@
  * */
 
 import { useEffect, useRef } from "react";
-import { Form, useLoaderData, useTransition } from "@remix-run/react";
+import { Form, useLoaderData, useNavigation } from "@remix-run/react";
 import type {
   ActionFunction,
   DataFunctionArgs,
@@ -13,7 +13,7 @@ import type {
 } from "@remix-run/node";
 import { db } from "~/utils/db.server";
 import { ToastContainer, toast } from "react-toastify";
-import { Todo } from "~/models/todos.model";
+import type { Todo } from "~/models/todos.model";
 
 export const loader: LoaderFunction = async () => {
   console.log("todos:server");
@@ -68,13 +68,13 @@ export const action: ActionFunction = async (args: DataFunctionArgs) => {
 
 export default function Todos() {
   const todos = useLoaderData<Todo[]>();
-  const { state, submission } = useTransition();
+  const { state, formData } = useNavigation();
   const notify = () => toast("NEW TASK ADDED");
 
   const titleRef = useRef<any>();
 
   const isAdding =
-    state === "submitting" && submission?.formData.get("_action") === "create";
+    state === "submitting" && formData.get("_action") === "create";
 
   useEffect(() => {
     console.log("todos:client");

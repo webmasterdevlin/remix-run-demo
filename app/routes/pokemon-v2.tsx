@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { LoaderFunction } from "@remix-run/node";
+import type { LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { get } from "~/http-client/config";
 
