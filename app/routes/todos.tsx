@@ -27,7 +27,7 @@ export const action: ActionFunction = async (args: DataFunctionArgs) => {
   switch (_action) {
     case "create":
       // this can be put in another file
-      // do remix-validated-form + zod here
+      // do validation here remix-validated-form or @conform-to, here
       return await db.todo.create({
         data: {
           title: title,
