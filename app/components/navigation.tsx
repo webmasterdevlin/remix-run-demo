@@ -12,6 +12,7 @@ const routes: Routes[] = [
   { path: "pokemon-v2", label: "pokemon-v2" },
   { path: "heroes", label: "heroes" },
   { path: "todos", label: "todos" },
+  { path: "settings", label: "settings" },
 ];
 
 const Navigation = () => {
