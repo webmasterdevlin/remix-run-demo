@@ -13,12 +13,13 @@ const routes: Routes[] = [
   { path: "heroes", label: "heroes" },
   { path: "todos", label: "todos" },
   { path: "settings", label: "settings" },
+  { path: "profile", label: "profile" },
 ];
 
 const Navigation = () => {
   return (
     <nav
-      className={"flex flex-row flex-wrap items-center justify-between"}
+      className={"flex w-full flex-row flex-wrap items-center justify-between"}
     >
       <div>
         {routes.map((r, i) => {

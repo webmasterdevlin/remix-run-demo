@@ -15,7 +15,6 @@ import {
   ScrollRestoration,
   useCatch,
 } from "@remix-run/react";
-import Navigation from "~/components/navigation";
 import toastStyles from "react-toastify/dist/ReactToastify.css";
 import stylesheet from "~/styles/tailwind.css";
 
@@ -78,9 +77,7 @@ function Document({
 }
 
 function Layout({ children }: { children: ReactNode }) {
-  return (
-      <div className="container prose p-4">{children}</div>
-  );
+  return <div className="container prose w-full p-4">{children}</div>;
 }
 
 // https://remix.run/docs/en/v1/api/conventions#errorboundary
@@ -119,7 +116,10 @@ export function CatchBoundary() {
       break;
     case 404:
       message = (
-        <p>Oops! Looks like you tried to visit a page that does not exist. Back to <Link to="/">safety</Link>.</p>
+        <p>
+          Oops! Looks like you tried to visit a page that does not exist. Back
+          to <Link to="/">safety</Link>.
+        </p>
       );
       break;
 
