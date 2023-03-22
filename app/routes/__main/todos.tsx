@@ -6,16 +6,12 @@
 
 import { useEffect, useRef } from "react";
 import { Form, useLoaderData, useNavigation } from "@remix-run/react";
-import type {
-  ActionFunction,
-  DataFunctionArgs,
-  LoaderFunction,
-} from "@remix-run/node";
+import type { ActionFunction, DataFunctionArgs } from "@remix-run/node";
 import { db } from "~/utils/db.server";
 import { ToastContainer, toast } from "react-toastify";
 import type { Todo } from "~/models/todos.model";
 
-export const loader: LoaderFunction = async () => {
+export const loader = async () => {
   console.log("todos:server");
   return await db.todo.findMany();
 };

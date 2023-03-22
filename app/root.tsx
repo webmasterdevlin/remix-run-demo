@@ -6,6 +6,7 @@ that every other route loads and depends on.
 import type { ReactNode } from "react";
 import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import {
+  Link,
   Links,
   LiveReload,
   Meta,
@@ -78,10 +79,7 @@ function Document({
 
 function Layout({ children }: { children: ReactNode }) {
   return (
-    <div>
-      <Navigation />
-      <div className="container mx-auto p-4">{children}</div>
-    </div>
+      <div className="container prose p-4">{children}</div>
   );
 }
 
@@ -97,7 +95,7 @@ export function ErrorBoundary({ error }: any) {
           <hr />
           <p>
             Hey, developer, you should replace this with what you want your
-            users to see.
+            users to see. Back to <Link to="/">safety</Link>.
           </p>
         </div>
       </Layout>
@@ -115,13 +113,13 @@ export function CatchBoundary() {
       message = (
         <p>
           Oops! Looks like you tried to visit a page that you do not have access
-          to.
+          to. Back to <Link to="/">safety</Link>.
         </p>
       );
       break;
     case 404:
       message = (
-        <p>Oops! Looks like you tried to visit a page that does not exist.</p>
+        <p>Oops! Looks like you tried to visit a page that does not exist. Back to <Link to="/">safety</Link>.</p>
       );
       break;
 

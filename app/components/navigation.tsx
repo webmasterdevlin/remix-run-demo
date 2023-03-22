@@ -18,7 +18,7 @@ const routes: Routes[] = [
 const Navigation = () => {
   return (
     <nav
-      className={"mih-50 flex flex-row flex-wrap items-center justify-between"}
+      className={"flex flex-row flex-wrap items-center justify-between"}
     >
       <div>
         {routes.map((r, i) => {

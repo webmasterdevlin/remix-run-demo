@@ -8,7 +8,7 @@
     "esModuleInterop": true,
     "jsx": "react-jsx",
     "module": "CommonJS",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "target": "ES2019",
     "strict": true,
