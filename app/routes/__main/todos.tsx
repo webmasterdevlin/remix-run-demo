@@ -17,9 +17,8 @@ export const loader = async () => {
 };
 
 export const action: ActionFunction = async (args: DataFunctionArgs) => {
-  const formData = await args.request.formData();
-  const _action = formData.get("_action");
-  const title = formData.get("title") as string;
+  const todoData = Object.fromEntries(await args.request.formData());
+  const { _action, title, id } = todoData as any as TodoData;
   switch (_action) {
     case "create":
       // this can be put in another file
@@ -32,7 +31,6 @@ export const action: ActionFunction = async (args: DataFunctionArgs) => {
       });
 
     case "delete":
-      const id = formData.get("id") as string;
       return await db.todo.delete({ where: { id } });
   }
 };
@@ -67,7 +65,7 @@ export default function Todos() {
             Title
           </label>
           <input
-            className="field"
+            className="field mb-4"
             id="title"
             name="title"
             type="text"
@@ -114,3 +112,9 @@ export default function Todos() {
     </>
   );
 }
+
+type TodoData = {
+  _action: "create" | "delete";
+  id: string;
+  title: string;
+};
