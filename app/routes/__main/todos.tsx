@@ -8,6 +8,8 @@ import { useEffect, useRef } from "react";
 import { Form, useLoaderData, useNavigation } from "@remix-run/react";
 import type { ActionFunction, DataFunctionArgs } from "@remix-run/node";
 import { db } from "~/utils/db.server";
+import { z } from "zod";
+import invariant from "tiny-invariant";
 import { ToastContainer, toast } from "react-toastify";
 import type { Todo } from "~/models/todos.model";
 
@@ -21,16 +23,26 @@ export const action: ActionFunction = async (args: DataFunctionArgs) => {
   const { _action, title, id } = todoData as any as TodoData;
   switch (_action) {
     case "create":
-      // this can be put in another file
-      // do validation here remix-validated-form or @conform-to, here
-      return await db.todo.create({
-        data: {
-          title: title,
-          completed: false,
-        },
+      const createSchema = z.object({
+        _action: z.string(),
+        title: z.string().min(1).max(20),
       });
+      try {
+        createSchema.parse(todoData);
+        return await db.todo.create({
+          data: {
+            title: title,
+            completed: false,
+          },
+        });
+      } catch (error: any) {
+        return new Response(error.message, {
+          status: 400,
+        });
+      }
 
     case "delete":
+      invariant(id, "id is required");
       return await db.todo.delete({ where: { id } });
   }
 };
