@@ -1,13 +1,13 @@
 import { Authenticator } from "remix-auth";
 import { Auth0Strategy } from "remix-auth-auth0";
-import { User } from "~/models/user.model";
+import type { User } from "~/models/user.model";
 import { sessionStorage } from "~/services/session.server";
 
 // Create an instance of the authenticator, pass a generic with what your
 // strategies will return and will be stored in the session
 export const authenticator = new Authenticator<User>(sessionStorage);
 
-let auth0Strategy = new Auth0Strategy(
+let auth0Strategy: any = new Auth0Strategy(
   {
     callbackURL: "https://example.com/auth/auth0/callback",
     clientID: "YOUR_AUTH0_CLIENT_ID",

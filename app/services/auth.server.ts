@@ -13,7 +13,8 @@ authenticator.use(
     new FormStrategy(async ({ form }) => {
       let email = form.get("email");
       let password = form.get("password");
-      let user = await login(email, password);
+      let user = { email, password } as any;
+      // let user = await login(email, password);
       // the type of this user must match the type you pass to the Authenticator
       // the strategy will automatically inherit the type if you instantiate
       // directly inside the `use` method

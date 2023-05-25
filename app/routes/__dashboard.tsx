@@ -1,5 +1,7 @@
 import React from "react";
 import { Link, Outlet, useCatch } from "@remix-run/react";
+import Layout from "~/components/layouts";
+import Document from "~/components/document";
 
 export default function DashboardLayout() {
   return (

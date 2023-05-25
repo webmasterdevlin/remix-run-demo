@@ -17,6 +17,8 @@ import {
 } from "@remix-run/react";
 import toastStyles from "react-toastify/dist/ReactToastify.css";
 import stylesheet from "~/styles/tailwind.css";
+import Layout from "./components/layouts";
+import Document from "./components/document";
 
 /*
 The links function defines which <link> elements to add
@@ -49,35 +51,6 @@ export default function App() {
       </Layout>
     </Document>
   );
-}
-
-function Document({
-  children,
-  title = `Remix: So great, it's funny!`,
-}: {
-  children: ReactNode;
-  title?: string;
-}) {
-  return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <Meta />
-        <title>{title}</title>
-        <Links />
-      </head>
-      <body className="dark">
-        {children}
-        <ScrollRestoration />
-        <Scripts />
-        {process.env.NODE_ENV === "development" ? <LiveReload /> : null}
-      </body>
-    </html>
-  );
-}
-
-function Layout({ children }: { children: ReactNode }) {
-  return <div className="container prose w-full p-4">{children}</div>;
 }
 
 // https://remix.run/docs/en/v1/api/conventions#errorboundary
