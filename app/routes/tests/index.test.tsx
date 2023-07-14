@@ -1,6 +1,6 @@
 import { render, screen } from "../../../test/testing-library-utils";
 import userEvent from "@testing-library/user-event";
-import HomePage from "../__main/index";
+import HomePage from "../_main._index";
 
 describe("Heroes Page", () => {
   beforeEach(() => {});
