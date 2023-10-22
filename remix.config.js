@@ -1,8 +1,8 @@
-/**
- * @type {import('@remix-run/dev').AppConfig}
- */
-module.exports = {
-  cacheDirectory: "./node_modules/.cache/remix",
-  ignoredRouteFiles: ["**/.*", "**/*.css", "**/*.test.{js,jsx,ts,tsx}"],
-  serverDependenciesToBundle: ["axios"],
+/** @type {import('@remix-run/dev').AppConfig} */
+export default {
+  ignoredRouteFiles: ["**/.*"],
+  // appDirectory: "app",
+  // assetsBuildDirectory: "public/build",
+  // publicPath: "/build/",
+  // serverBuildPath: "build/index.js",
 };

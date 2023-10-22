@@ -4,13 +4,13 @@ import { get } from "~/http-client/config";
 
 export const loader = async () => {
   const { data } = await get(
-    "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20"
+    "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20",
   );
   return data;
 };
 
 export default function Pokemon() {
-  const pokemon = useLoaderData();
+  const pokemon = useLoaderData<any>();
   // will not work if you disable JavaScript in your browser
   useEffect(() => {
     console.log("pokemon-v2:client");

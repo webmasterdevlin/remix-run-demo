@@ -55,7 +55,7 @@ export default function Todos() {
   const titleRef = useRef<any>();
 
   const isAdding =
-    state === "submitting" && formData.get("_action") === "create";
+    state === "submitting" && formData?.get("_action") === "create";
 
   useEffect(() => {
     console.log("todos:client");
