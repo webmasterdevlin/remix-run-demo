@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Outlet, useCatch } from "@remix-run/react";
+import { Outlet, useRouteError, isRouteErrorResponse } from "@remix-run/react";
 import Layout from "~/components/layouts";
 import Document from "~/components/document";
 
@@ -12,56 +12,20 @@ export default function DashboardLayout() {
   );
 }
 
-// https://remix.run/docs/en/v1/api/conventions#errorboundary
-export function ErrorBoundary({ error }: any) {
-  console.error(error);
-  return (
-    <div>
-      <h1>Dashboard Error</h1>
-      <p>{error.message}</p>
-      <hr />
-      <p>
-        Back to <Link to="/">safety</Link>.
-      </p>
-    </div>
-  );
-}
+export function ErrorBoundary() {
+  let error = useRouteError();
 
-// https://remix.run/docs/en/v1/api/conventions#catchboundary
-export function CatchBoundary() {
-  let caught = useCatch();
-
-  let message;
-  switch (caught.status) {
-    case 401:
-      message = (
-        <p>
-          Oops! Looks like you tried to visit a page that you do not have access
-          to. Back to <Link to="/">safety</Link>.
-        </p>
-      );
-      break;
-    case 404:
-      message = (
-        <p>
-          Oops! Looks like you tried to visit a page that does not exist. Back
-          to <Link to="/">safety</Link>.
-        </p>
-      );
-      break;
-
-    default:
-      throw new Error(caught.data || caught.statusText);
+  if (isRouteErrorResponse(error)) {
+    return (
+      <Document title="Something happened">
+        <Layout>
+          <div>
+            <h1>Oops</h1>
+            <p>Status: {error.status}</p>
+            <p>{error.data.message}</p>
+          </div>
+        </Layout>
+      </Document>
+    );
   }
-
-  return (
-    <Document title={`${caught.status} ${caught.statusText}`}>
-      <Layout>
-        <h1>
-          {caught.status}: {caught.statusText}
-        </h1>
-        {message}
-      </Layout>
-    </Document>
-  );
 }

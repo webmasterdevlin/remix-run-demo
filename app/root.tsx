@@ -3,18 +3,8 @@ Responsible for providing the structure of the application.
 Its default export is a component that renders the full HTML tree
 that every other route loads and depends on.
 */
-import type { ReactNode } from "react";
 import type { LinksFunction, MetaFunction } from "@remix-run/node";
-import {
-  Link,
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-  useCatch,
-} from "@remix-run/react";
+import { Outlet, useRouteError, isRouteErrorResponse } from "@remix-run/react";
 import toastStyles from "react-toastify/dist/ReactToastify.css";
 import stylesheet from "~/styles/tailwind.css";
 import Layout from "./components/layouts";
@@ -37,11 +27,15 @@ export const links: LinksFunction = () => {
 /*
 The meta export will set meta tags for your html document.
 */
-export const meta: MetaFunction = () => ({
-  charset: "utf-8",
-  title: "New Remix App",
-  viewport: "width=device-width,initial-scale=1",
-});
+export const meta: MetaFunction = (metaArgs) => {
+  return [
+    {
+      charset: "utf-8",
+      title: "New Remix App",
+      viewport: "width=device-width,initial-scale=1",
+    },
+  ];
+};
 
 export default function App() {
   return (
@@ -53,61 +47,20 @@ export default function App() {
   );
 }
 
-// https://remix.run/docs/en/v1/api/conventions#errorboundary
-export function ErrorBoundary({ error }: any) {
-  console.error(error);
-  return (
-    <Document title="Error!">
-      <Layout>
-        <div>
-          <h1>There was an error</h1>
-          <p>{error.message}</p>
-          <hr />
-          <p>
-            Hey, developer, you should replace this with what you want your
-            users to see. Back to <Link to="/">safety</Link>.
-          </p>
-        </div>
-      </Layout>
-    </Document>
-  );
-}
+export function ErrorBoundary() {
+  let error = useRouteError();
 
-// https://remix.run/docs/en/v1/api/conventions#catchboundary
-export function CatchBoundary() {
-  let caught = useCatch();
-
-  let message;
-  switch (caught.status) {
-    case 401:
-      message = (
-        <p>
-          Oops! Looks like you tried to visit a page that you do not have access
-          to. Back to <Link to="/">safety</Link>.
-        </p>
-      );
-      break;
-    case 404:
-      message = (
-        <p>
-          Oops! Looks like you tried to visit a page that does not exist. Back
-          to <Link to="/">safety</Link>.
-        </p>
-      );
-      break;
-
-    default:
-      throw new Error(caught.data || caught.statusText);
+  if (isRouteErrorResponse(error)) {
+    return (
+      <Document title="Error">
+        <Layout>
+          <div>
+            <h1>Oops</h1>
+            <p>Status: {error.status}</p>
+            <p>{error.data.message}</p>
+          </div>
+        </Layout>
+      </Document>
+    );
   }
-
-  return (
-    <Document title={`${caught.status} ${caught.statusText}`}>
-      <Layout>
-        <h1>
-          {caught.status}: {caught.statusText}
-        </h1>
-        {message}
-      </Layout>
-    </Document>
-  );
 }
