@@ -5,8 +5,8 @@ that every other route loads and depends on.
 */
 import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import { Outlet, useRouteError, isRouteErrorResponse } from "@remix-run/react";
-import toastStyles from "react-toastify/dist/ReactToastify.css";
-import stylesheet from "~/styles/tailwind.css";
+import toastStyles from "react-toastify/dist/ReactToastify.css?inline";
+import stylesheet from "~/styles/tailwind.css?inline";
 import Layout from "./components/layouts";
 import Document from "./components/document";
 
