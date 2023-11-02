@@ -3,26 +3,13 @@ Responsible for providing the structure of the application.
 Its default export is a component that renders the full HTML tree
 that every other route loads and depends on.
 */
-import type { LinksFunction, MetaFunction } from "@remix-run/node";
-import { Outlet, useRouteError, isRouteErrorResponse } from "@remix-run/react";
-import toastStyles from "react-toastify/dist/ReactToastify.css?inline";
-import stylesheet from "~/styles/tailwind.css?inline";
+import type { MetaFunction } from "@remix-run/node";
+import { LiveReload, Outlet, isRouteErrorResponse, useRouteError} from "@remix-run/react";
+import "react-toastify/dist/ReactToastify.css";
+import "~/styles/tailwind.css";
 import Layout from "./components/layouts";
 import Document from "./components/document";
 
-/*
-The links function defines which <link> elements to add
-to the page when the user visits a route.
-*/
-export const links: LinksFunction = () => {
-  return [
-    {
-      rel: "stylesheet",
-      href: toastStyles,
-    },
-    { rel: "stylesheet", href: stylesheet },
-  ];
-};
 
 /*
 The meta export will set meta tags for your html document.
@@ -42,6 +29,7 @@ export default function App() {
     <Document>
       <Layout>
         <Outlet />
+        <LiveReload />
       </Layout>
     </Document>
   );
