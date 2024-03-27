@@ -1,4 +1,3 @@
-import React from "react";
 import { Outlet } from "@remix-run/react";
 import Navigation from "~/components/navigation";
 

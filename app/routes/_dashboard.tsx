@@ -1,4 +1,3 @@
-import React from "react";
 import { Outlet, useRouteError, isRouteErrorResponse } from "@remix-run/react";
 import Layout from "~/components/layouts";
 import Document from "~/components/document";

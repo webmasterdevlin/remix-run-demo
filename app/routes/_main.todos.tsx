@@ -6,7 +6,7 @@
 
 import { useEffect, useRef } from "react";
 import { Form, useLoaderData, useNavigation } from "@remix-run/react";
-import type { ActionFunction, DataFunctionArgs } from "@remix-run/node";
+import type { ActionFunction, ActionFunctionArgs } from "@remix-run/node";
 import { db } from "~/utils/db.server";
 import { z } from "zod";
 import invariant from "tiny-invariant";
@@ -18,7 +18,7 @@ export const loader = async () => {
   return await db.todo.findMany();
 };
 
-export const action: ActionFunction = async (args: DataFunctionArgs) => {
+export const action: ActionFunction = async (args: ActionFunctionArgs) => {
   const todoData = Object.fromEntries(await args.request.formData());
   const { _action, title, id } = todoData as any as TodoData;
   switch (_action) {

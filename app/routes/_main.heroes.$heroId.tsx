@@ -1,10 +1,10 @@
-import type { LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { get } from "~/http-client/config";
 import invariant from "tiny-invariant";
 import type { HeroModel } from "./_main.heroes._index";
+import type { LoaderFunction, LoaderFunctionArgs } from "@remix-run/node";
 
-export const loader: LoaderFunction = async ({ params }) => {
+export const loader: LoaderFunction = async ({ params }: LoaderFunctionArgs) => {
   invariant(params.heroId, "expected params.heroId");
 
   const response = await get<HeroModel>("heroes/" + params.heroId);

@@ -1,4 +1,3 @@
-import React from "react";
 import { get } from "~/http-client/config";
 
 export const loader = async () => {
